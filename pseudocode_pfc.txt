@@ -1,0 +1,56 @@
+START
+	
+	
+	#Lister les variables
+	CREER UNE LISTE Elements CONTENANT LES ELEMENTS Pierre, Feuille et Ciseau
+	
+
+	#FONCTION Player_Winner permettant de determiner la valeur des éléments entre eux (comparaison pour déterminer le gagnant)
+	DÉTERMINER UNE VALEUR aux éléments de la liste Elements (Pierre = 0, Feuille = 1, Ciseau = 2 (Chiffres correspondant aux index de la liste Elements pour plus de facilité))
+	COMPARER les éléments avec leur valeurs (index dans la liste Elements)
+	DETERMINER l'élément gagnant avec des conditions
+		GÉRER LES CAS PARTICULIERS
+		SI elem1 VAUT elem2 :
+			ÉGALITÉ
+			DONC personne GAGNE
+
+			CORRIGER LES FAILLES DE L'INDEX
+				SI elem1 VAUT 0 et elem2 VAUT 2 :
+					elem1 GAGNE
+					DONC joueur 1 GAGNE
+				SI elem1 VAUT 2 et elem2 VAUT 0 :
+					elem2 GAGNE
+					DONC joueur 2 GAGNE
+
+		PUIS FAIRE LA CONDITION GÉNÉRAL DE VICTOIRE
+			SI elem1 EST STRICTEMENT SUPÉRIEUR à elem2 :
+				elem1 GAGNE
+				DONC joueur 1 GAGNE
+			SINON :
+				elem2 GAGNE
+				DONC joueur 2 GAGNE
+	RENVOYER LE GAGNANT
+	
+	
+	#FONCTION Player2_IA creation de l'IA qui va jouer en tant que second joueur
+	CREER UNE LISTE ElementsStats CONTENANT LES ELEMENTS les probabilitées des éléments (de la liste Elements) qui vont être jouer
+	FAIRE CHOISIR un élément de la liste Elements selon les probabilitées les plus intéressantes de la liste ElementsStats
+	METTRE EN VARIABLE DU NOM IA_Choice le résultat obtenu par la décision de l'IA suite au comparaisons de probabilitées
+	RENVOYER LA VARIABLE IA_Choice
+	
+	#FONCTION Player1 faire jouer le joueur 1
+	DEMANDER au joueur 1 (utilisateur) l'élément qu'il veut jouer EN AFFICHANT les possibilitées de choix (donc les éléments de la liste Elements)
+	METTRE EN VARIABLE DU NOM Player_Choice le résultat obtenu par le joueur 1 (l'utilisateur)
+	RENVOYER LA VARIABLE Player_Choice
+	
+	#FONCTION qui permet d'administrer la partie en lançant les fonctions nécessaires au jeu dans l'ordre
+	APPEL DE LA FONCTION Player2_IA
+	APPEL DE LA FONCTION Player1
+	APPEL DE LA FONCTION Player_Winner
+	
+	//BONUS
+	#FONCTION Setup_Round qui permet de faire choisir un nombre de rounds a l'utilisateur
+	DEMANDER a l'utilisateur combien de rounds veut-il pour ce match EN AFFICHANT la question du nombre de rounds
+	
+	
+END
